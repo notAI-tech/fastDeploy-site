@@ -56,7 +56,7 @@ fastDeploy has two major components.
 
 2. Features: supports sync, async apis, webhooks and file, json inputs, client side batching, server side batching.
 
-3. Supports all deep learning toolkits.
+3. Supports all deep learning toolkits. (PyTorch, Tensorflow, Keras, Kaldi ..  all support batching.)
 
 3. Well tested and benchmarked.
     1. By design, fastDeploy's serving performance will always be more than sequential predictions.
