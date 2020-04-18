@@ -4,7 +4,7 @@ title: Architecture
 nav_order: 5
 ---
 
-# Navigation Structure
+# Some notes about the architecture of fastDeploy
 {: .no_toc }
 
 ## Table of contents
@@ -15,15 +15,30 @@ nav_order: 5
 
 ---
 
-## Main navigation
+## Design
+![alt text](https://i.imgur.com/y6x4znY.png)
 
-The main navigation for your Just the Docs site is on the left side of the page at large screens and on the top (behind a tap) on small screens. The main navigation can be structured to accommodate a multi-level menu system (pages with children and grandchildren).
 
-By default, all pages will appear as top level pages in the main nav unless a parent page is defined (see [Pages with Children](#pages-with-children)).
+fastDeploy has two major components.
+
+1. **loop :** the (computationally heavy) prediction loop.
+
+    1. At startup, fastDeploy initializes the user supplied predictor function and estimates the optimal batch size for maximum inference throughput.
+    2. After startup, the predictor waits for any inputs to appear, and processes them in batches if possible.
+
+2. **app :** the API server that handles the requests. 
+
+    1. Once the predictor is intialized, maximum parallelsim required (for API server) is estimated based on the batch size and number of CPU cores available.
+    2. The app has three api end points. ```/sync```, ```/async``` and ```/result```.
+    3. ```/sync``` accepts, writes the data (to cache/ disk), waits for the result to appear in cache, and returns it.
+    4. ```/async``` accepts, writes the data (and extra params like webhook) and return the unique_id of that input.
+    5. ```/result``` accepts the unique_id, returns the result if it exists.
+
+
 
 ---
 
-## Ordering pages
+## Choices and Reasons
 
 To specify a page order, use the `nav_order` parameter in your pages' YAML front matter.
 
