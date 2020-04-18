@@ -4,11 +4,11 @@ title: API interface
 nav_order: 3
 ---
 
-# Recipie
+# API interface
 {: .no_toc }
 
 
-Just the Docs has some specific configuration parameters that can be defined in your Jekyll site's _config.yml file.
+This section describes API reqeust and response formats followed by fastDeploy. 
 {: .fs-6 .fw-300 }
 
 ## Table of contents
@@ -20,16 +20,17 @@ Just the Docs has some specific configuration parameters that can be defined in 
 ---
 
 
-View this site's [_config.yml](https://github.com/pmarsceill/just-the-docs/tree/master/_config.yml) file as an example.
+fastDeploy supports two types of inputs, JSON and File.
 
-## Site logo
+## JSON
+
 
 ```yaml
 # Set a path/url to a logo that will be displayed instead of the title
 logo: "/assets/images/just-the-docs.png"
 ```
 
-## Search
+## File
 
 ```yaml
 # Enable or disable the site search
@@ -41,7 +42,7 @@ search_tokenizer_separator: /[\s/]+/
 
 ```
 
-## Aux links
+## Sync request
 
 ```yaml
 # Aux links for the upper right navigation
@@ -50,7 +51,7 @@ aux_links:
     - "//github.com/pmarsceill/just-the-docs"
 ```
 
-## Heading anchor links
+## Async request
 
 ```yaml
 # Heading anchor links appear on hover over h1-h6 tags in page content
@@ -60,28 +61,10 @@ aux_links:
 heading_anchors: true
 ```
 
-## Footer content
+## Response
 
 ```yaml
 # Footer content appears at the bottom of every page's main content
 footer_content: "Copyright &copy; 2017-2019 Patrick Marsceill. Distributed by an <a href=\"https://github.com/pmarsceill/just-the-docs/tree/master/LICENSE.txt\">MIT license.</a>"
 ```
 
-## Color scheme
-
-```yaml
-# Color scheme currently only supports "dark" or nil (default)
-color_scheme: "dark"
-```
-<button class="btn js-toggle-dark-mode">Preview dark color scheme</button>
-
-<script type="text/javascript" src="{{ "/assets/js/dark-mode-preview.js" | absolute_url }}"></script>
-
-
-## Google Analytics
-
-```yaml
-# Google Analytics Tracking (optional)
-# e.g, UA-1234567-89
-ga_tracking: UA-5555555-55
-```

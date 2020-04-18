@@ -4,11 +4,10 @@ title: Recipies
 nav_order: 2
 ---
 
-# Recipie
+# Recipies
 {: .no_toc }
 
-
-Just the Docs has some specific configuration parameters that can be defined in your Jekyll site's _config.yml file.
+To demonstrate the ease of use in deploying any model via fastDeploy, we provide various pre-made builds.
 {: .fs-6 .fw-300 }
 
 ## Table of contents
