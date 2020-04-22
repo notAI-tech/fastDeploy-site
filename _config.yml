@@ -23,7 +23,7 @@ email: praneeth@notai.tech
 description: >- # this means to ignore newlines until "baseurl:"
   fastDeploy enables you to build production ready APIs for Deep Learning models,
   by providing a set of standardized APIs that work with all major frameworks - Pytorch, Tensorflow, Keras, kaldi etc. 
-baseurl: "/fastDeploy" # the subpath of your site, e.g. /blog
+baseurl: "/fastDeploy-site" # the subpath of your site, e.g. /blog
 url: "https://notai-tech.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: notai-tech
 github_username:  notai-tech
