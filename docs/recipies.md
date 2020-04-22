@@ -22,11 +22,15 @@ We provide pre-built images for various Deep Learning models. Each recipie is a 
 
 ## CRAFT Text Detection:
 
-**Arxiv**: https://arxiv.org/abs/1904.01941
+**Arxiv**: [https://arxiv.org/abs/1904.01941](https://arxiv.org/abs/1904.01941)
 
 **Based on**: [keras-ocr](https://github.com/faustomorales/keras-ocr/), [CRAFT-pytorch](https://github.com/clovaai/CRAFT-pytorch)
 
 **View Code**: [On Github](https://github.com/notAI-tech/fastDeploy/tree/prototype/recipies/craft_text_detection)
 
-[**Download as zip**]()
+CRAFT recipie uses the FILE format.
 
+```
+
+
+## 

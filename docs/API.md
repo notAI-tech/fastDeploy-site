@@ -8,7 +8,7 @@ nav_order: 3
 {: .no_toc }
 
 
-This section describes API reqeust and response formats followed by fastDeploy. 
+This section describes API reqeust and response formats, endpoints supported by fastDeploy. 
 {: .fs-6 .fw-300 }
 
 ## Table of contents
@@ -19,52 +19,151 @@ This section describes API reqeust and response formats followed by fastDeploy.
 
 ---
 
-
-fastDeploy supports two types of inputs, JSON and File.
-
-## JSON
+See **[Best Practices]()** for notes about getting the most out of your hardware.
 
 
-```yaml
-# Set a path/url to a logo that will be displayed instead of the title
-logo: "/assets/images/just-the-docs.png"
+fastDeploy supports two types of inputs, `JSON` and `FILE` and two API endpoints, `sync` and `async` for running inference.
+
+## Request Type: FILE
+
+  1. FILE input is intended for **predictors with a list of file paths as input**.
+
+  2. This is useful for deploying CV/ Speech Deep Learning models along with the preprocessing needed.
+
+  3. This allows for predictor functions that can only read input from storage.
+
+  4. Input files should be base64 encoded and sent via a POST request in the following format.
+
+**Request Format**
+```json
+{
+  "data": {
+    "1.png": "base64 encoded 1.png",
+    "2.png": "base64 encoded 2.png"
+  }
+}
 ```
 
-## File
+**Python example**
+```python
+import base64
+import requests
 
-```yaml
-# Enable or disable the site search
-# Supports true (default) or false
-search_enabled: true
+file_paths = ["1.png", "2.png"]
 
-# Enable support for hyphenated search words:
-search_tokenizer_separator: /[\s/]+/
+data = {}
 
+for file_path in file_paths:
+    with open(file_path, "rb") as f:
+        data[file_path] = base64.b64encode(open(file_path, "rb").read()).decode("utf-8")
+
+# Sync request
+response = requests.post("http://IP:PORT/sync", json = {'data': data}).json()
+
+# Async request without webhook
+response = requests.post("http://IP:PORT/async", json = {'data': data}).json()
 ```
 
-## Sync request
 
-```yaml
-# Aux links for the upper right navigation
-aux_links:
-  "Just the Docs on GitHub":
-    - "//github.com/pmarsceill/just-the-docs"
+
+## Request Type: JSON
+
+JSON input is intended for inputs that can be sent as json, i.e: Text based models, models with numerical inputs..
+
+**Request format**
+```json
+{
+  "data": {
+    "1.png": "base64 encoded 1.png",
+    "2.png": "base64 encoded 2.png"
+  }
+}
+```
+**Python example**
+```python
+import requests
+
+data = [INPUT_1, INPUT_2]
+
+# Sync request
+response = requests.post("http://IP:PORT/sync", json = {'data': data}).json()
+
+# Async request without webhook
+response = requests.post("http://IP:PORT/async", json = {'data': data}).json()
 ```
 
-## Async request
+## Endpoint: SYNC
 
-```yaml
-# Heading anchor links appear on hover over h1-h6 tags in page content
-# allowing users to deep link to a particular heading on a page.
-#
-# Supports true (default) or false/nil
-heading_anchors: true
+`/sync` is the end point for sync inference. i.e: the response of the post request will contain the prediction(s).
+
+**On Success**
+- FILE
+  ```json
+  {
+    {
+      "prediction": {
+        "1.png": ..,
+        "2.png": ..
+      }, 
+      "success": True
+    }
+  }
+  ```
+- JSON
+  ```json
+  {
+    "prediction": [
+      PRED_1,
+      PRED_2
+    ], 
+    "success": True
+  }
+  ```
+
+**On Fail**: 
+  ```json
+    {
+        "success": False,
+        "reason": REASON
+    }
+  ```
+
+## Endpoint: ASYNC
+
+`/async` is the endpoint for async inference. i.e: a `unique_id` is returned in response to the request.
+
+The response can be obtained by poling endpoint `/res` or via a webhook (if provided).
+
+**Webhook**
+  - Apart from the usual "data" key, async accepts another **optional parameter** `webhook`.
+  ```python
+  response = requests.post(API_URL, json = {'data': data, 'webhook': WEBHOOK_URL}).json()
+  ```
+  - If webhook is specified, manager loop calls the webhook with the result and the unique_id.
+  - [requestcatcher](https://requestcatcher.com/), [webhook.site](https://webhook.site/) .. provide free, in-browser private webhook listener for testing.
+**On success**
+  ```json
+  {
+    "unique_id": "string_unique_id", 
+    "success": True
+  }
+  ```
+**On Fail**: 
+```json
+  {
+      "success": False,
+      "reason": REASON
+  }
 ```
 
-## Response
+## Poling/ Response API**
+- Result for a `/async` request can be obtained by poling the endpoint `/res`
 
-```yaml
-# Footer content appears at the bottom of every page's main content
-footer_content: "Copyright &copy; 2017-2019 Patrick Marsceill. Distributed by an <a href=\"https://github.com/pmarsceill/just-the-docs/tree/master/LICENSE.txt\">MIT license.</a>"
-```
+**Request format**
+  ```json
+  {
+    "unique_id": "string_unique_id"
+  }
+  ```
 
+Response is same as `/sync`
