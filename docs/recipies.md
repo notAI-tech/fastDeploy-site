@@ -7,7 +7,7 @@ nav_order: 2
 # Recipies
 {: .no_toc }
 
-To demonstrate the ease of use in deploying any model via fastDeploy, we provide various pre-made builds.
+We provide pre-built images for various Deep Learning models. Each recipie is a directory with the corresponding `predictor.py` and `example.pkl` 
 {: .fs-6 .fw-300 }
 
 ## Table of contents
@@ -19,68 +19,14 @@ To demonstrate the ease of use in deploying any model via fastDeploy, we provide
 ---
 
 
-View this site's [_config.yml](https://github.com/pmarsceill/just-the-docs/tree/master/_config.yml) file as an example.
 
-## Site logo
+## CRAFT Text Detection:
 
-```yaml
-# Set a path/url to a logo that will be displayed instead of the title
-logo: "/assets/images/just-the-docs.png"
-```
+**Arxiv**: https://arxiv.org/abs/1904.01941
 
-## Search
+**Based on**: [keras-ocr](https://github.com/faustomorales/keras-ocr/), [CRAFT-pytorch](https://github.com/clovaai/CRAFT-pytorch)
 
-```yaml
-# Enable or disable the site search
-# Supports true (default) or false
-search_enabled: true
+**View Code**: [On Github](https://github.com/notAI-tech/fastDeploy/tree/prototype/recipies/craft_text_detection)
 
-# Enable support for hyphenated search words:
-search_tokenizer_separator: /[\s/]+/
+[**Download as zip**]()
 
-```
-
-## Aux links
-
-```yaml
-# Aux links for the upper right navigation
-aux_links:
-  "Just the Docs on GitHub":
-    - "//github.com/pmarsceill/just-the-docs"
-```
-
-## Heading anchor links
-
-```yaml
-# Heading anchor links appear on hover over h1-h6 tags in page content
-# allowing users to deep link to a particular heading on a page.
-#
-# Supports true (default) or false/nil
-heading_anchors: true
-```
-
-## Footer content
-
-```yaml
-# Footer content appears at the bottom of every page's main content
-footer_content: "Copyright &copy; 2017-2019 Patrick Marsceill. Distributed by an <a href=\"https://github.com/pmarsceill/just-the-docs/tree/master/LICENSE.txt\">MIT license.</a>"
-```
-
-## Color scheme
-
-```yaml
-# Color scheme currently only supports "dark" or nil (default)
-color_scheme: "dark"
-```
-<button class="btn js-toggle-dark-mode">Preview dark color scheme</button>
-
-<script type="text/javascript" src="{{ "/assets/js/dark-mode-preview.js" | absolute_url }}"></script>
-
-
-## Google Analytics
-
-```yaml
-# Google Analytics Tracking (optional)
-# e.g, UA-1234567-89
-ga_tracking: UA-5555555-55
-```
