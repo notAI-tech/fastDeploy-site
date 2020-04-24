@@ -4,7 +4,7 @@ title: Best Practices
 nav_order: 4
 ---
 
-# Some notes about the architecture of fastDeploy
+# Some notes about maximizing inference throughput.
 {: .no_toc }
 
 ## Table of contents
@@ -15,72 +15,53 @@ nav_order: 4
 
 ---
 
-## Design
-![alt text](https://i.imgur.com/y6x4znY.png)
+## Unused Resources are wasted Resources:
+1. Our aim is to get the maximum inference throughput from any hardware.
+2. For instance, take a look at the following predictor function.
+```python
+def predictor(in_examples=[], batch_size):
+    # Converting JSON/ FILE PATH present in in_example to model inputs
+    # preprocess is a example function,
+    # which converts given input into features accepted by your model.
+    # For instance, reading images and converting them to numpy arrays;
+    # reading audio file and caluclating features etc.
+    # Post process converts the model's numerical output space to outputs
 
+    preds = []
+    for in_example in in_examples:
+        in_example = preprocess(in_example)
+        model_pred = RESULT FROM PREDICTION
+        model_pred = postprocess(model_pred)
+        preds.append(model_pred)
 
-fastDeploy has two major components.
+    return model_preds
+```
 
-1. **loop :** the (computationally heavy) prediction loop.
+3. In the above example, we are not taking advantage of batch inference.
+4. Batch inference is supported by most modern Deep Learning libraries (PyTorch, Keras, Tensorflow) and architectures.
+5. **TL;DR: Use batching at your DL model's predict call whenever possible.**
 
-    1. At startup, fastDeploy initializes the user supplied predictor function and estimates the optimal batch size for maximum inference throughput.
-    2. After startup, the predictor waits for any inputs to appear, and processes them in batches if possible.
+```python
+def predictor(in_examples=[], batch_size):
+    in_examples = [preprocess(in_example) for in_example in in_examples]
 
-2. **app :** the API server that handles the requests. 
+    model_preds = MODEL.PREDICT(in_examples, ...)
 
-    1. Once the predictor is intialized, maximum parallelsim required (for API server) is estimated based on the batch size and number of CPU cores available.
-    2. The app has three api end points. `/sync`, `/async` and `/result`.
-    3. `/sync` accepts, writes the data (to cache/ disk), waits for the result to appear in cache, and returns it.
-    4. `/async` accepts, writes the data (and extra params like webhook) and return the unique_id of that input.
-    5. `/result` accepts the unique_id, returns the result if it exists.
+    model_preds = [postprocess(pred) for pred in model_preds]
 
+    return model_preds
+```
 
+6. The above `predictor` function uses batching for predictions.
+7. As we are taking advantage of batching for the most expensive operation (inference) in predictor, this is very efficient compared to the above snippet.
 
----
-
-## Choices and reasoning
-
-1. fastDeploy is designed for stable and efficient inference. The model in a loop approach guarantees maximum possible inference throughput.
-
-2. This modular approach enables us to replace other non-python dependant modules if required. For example, we can replace the current API server
-(falcon + gevent) with golang or node based servers easily. 
-
-3. Request/ response state handling, extras such as webhooks, are done independently via a index maintained in memory, and does not affect the inference performance.
-
-## Advantages of this design
-
-1. fastDeploy is an end-to-end serving solution for any type of model that can benefit from batching.
-    1. For example, to deploy a image classification model via tensorflow serving, image pre-processing steps have to performed separately.
-    2. this requires you to have different code for training and inference.
-    3. fastDeploy serves the entite Deep Learning system, including the lightweight preprocessing steps required.
-
-2. Features: supports sync, async apis, webhooks and file, json inputs, client side batching, server side batching.
-
-3. Supports all deep learning toolkits. (PyTorch, Tensorflow, Keras, Kaldi ..  all support batching.)
-
-3. Well tested and benchmarked.
-    1. By design, fastDeploy's serving performance will always be more than sequential predictions.
-    2. In all of our benchmarks, fastDeploy is significantly faster than tensorflow serving.
-
-4. Recipies.
-    1. We provide fastDeploy builds for various popular deep learning based libraries.
-    2. Most of the general use-cases are covered in our recipies and can be used as starting point for your builds.
-
-5. Training to Production pipelining as fast as possible.
-    1. With fastDeploy, you can put your latest DL model in production in just two commands.
-    2. Once built, the build image (docker image) can be re-used on any machine without re-installing or re-downloading the requirements.
-
-
-
-## Disadvantages
-
-This design has two obvious disadvantages.
-
-1. docker supports `--tmpfs` only on linux. This means, fastDeploy's `/sync` will be very slow on mac and windows.
-    1. Because of this, fastDeploy is essentially limited to linux.
-    2. Note that, `/async` will work on all platforms as expected.
-
-2. Horizontal Scaling and `/async`.
-    1. Both `async`, `sync` work with horizontal and vertical scaling. But, `async` should only be used with webhooks if horizontally scaling.
-    2. This is because, in `async` processing, the result is returned in a separate API call.
-    3. This problem can simply be solved by running a api that acts as a webhook listner.
+8. If our preprocessing/ postprocessing functions are not in-expensive, using multiprocessing helps.
+```python
+import multiprocessing
+in_examples = [...]
+# 2 parallel processes
+with multiprocessing.Pool(2) as pool:
+    preprocessed_examples = pool.mape(preprocess, in_examples)
+```
+9. Note that, multiprocessing might cause some problems depending on what `preprocess` and `postprocess` function actually do. 
+10. Please take a look at the ....... recipies to see how we use multiprocessing.
