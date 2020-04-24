@@ -22,43 +22,22 @@ fastDeploy is a standardized serving solution with sane defaults, that enables y
 
 fastDeploy's only requirement is [docker](https://docs.docker.com/install/).
 
-### Quick start: Using a pre-built recipie.
+### Quick start: Build the deployment via Web Interface.
 
-1. Add Just the Docs to your Jekyll site's `_config.yml` as a [remote theme](https://blog.github.com/2017-11-29-use-any-theme-with-github-pages/)
-```yaml
-remote_theme: pmarsceill/just-the-docs
-```
-<small>You must have GitHub Pages enabled on your repo, one or more Markdown files, and a `_config.yml` file. [See an example repository](https://github.com/pmarsceill/jtd-remote)</small>
+**COMING SOON**
 
-### : Building your recipie
+### : Build the deployment via fastDeploy CLI
 
-1. Install the Ruby Gem
+fastDeploy's CLI is a simple, helpful wrapper over docker.
 ```bash
-$ gem install just-the-docs
-```
-```yaml
-# .. or add it to your your Jekyll site’s Gemfile
-gem "just-the-docs"
-```
-2. Add Just the Docs to your Jekyll site’s `_config.yml`
-```yaml
-theme: "just-the-docs"
-```
-3. _Optional:_ Initialize search data (creates `search-data.json`)
-```bash
-$ bundle exec just-the-docs rake search:init
-```
-3. Run you local Jekyll server
-```bash
-$ jekyll serve
-```
-```bash
-# .. or if you're using a Gemfile (bundler)
-$ bundle exec jekyll serve
-```
-4. Point your web browser to [http://localhost:4000](http://localhost:4000)
+python fastDeploy.py --help
 
-If you're hosting your site on GitHub Pages, [set up GitHub Pages and Jekyll locally](https://help.github.com/en/articles/setting-up-your-github-pages-site-locally-with-jekyll) so that you can more easily work in your development environment.
+# Build local directory
+python fastDeploy.py --name flair_ner --source_dir ../flair_ner_recipie_dir
+
+# Build from download link (of zipped source dir/ recipie)
+python fastDeploy.py --name flair_ner --zip_url DOWNLOADABLE_LINK
+```
 
 
 ---

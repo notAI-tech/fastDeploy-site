@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Cloud Connectors
+title: Web UI and Cloud
 nav_order: 6
 has_children: true
 permalink: docs/cloud
