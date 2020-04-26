@@ -6,37 +6,48 @@ description: "fastDeploy enables you to build production ready APIs for Deep Lea
 permalink: /
 ---
 
-# Focus on building models, not on deployments.
+# ML/DL models -> scalable, efficient and configurable API deployments.
 {: .fs-9 }
 
-fastDeploy is a standardized serving solution with sane defaults, that enables you to deploy any ML/DL model as production ready, sync and async API(s) via containerization.
+fastDeploy provides a convenient way to serve DL/ ML models with minimal extra code. 
 {: .fs-6 .fw-300 }
 
-[Get started now](#getting-started){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [View it on GitHub](https://github.com/notAI-tech/fastDeploy){: .btn .fs-5 .mb-4 .mb-md-0 }
+[Download CLI](){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [View it on GitHub](https://github.com/notAI-tech/fastDeploy){: .btn .fs-5 .mb-4 .mb-md-0 }
 
 ---
 
-## Getting started
+
+## Features:
+  - Optimal batch size is estimated and inputs are automatically batched.
+  - Prediction can be run in sync or async using `/sync` and `/async` endpoints.
+  - Supports everything supported by Python; Tensorflow, Keras, Pytorch, MXNet, Kaldi ..
+  - Minimal extra code: You don't need to write any fastDeploy specific code.
 
 ### Dependencies
 
-fastDeploy's only requirement is [docker](https://docs.docker.com/install/).
+[Docker](https://docs.docker.com/install/) is the only dependency.
 
 ### Quick start: Build the deployment via Web Interface.
 
 **COMING SOON**
 
-### : Build the deployment via fastDeploy CLI
+### Quick start: Build the deployment via CLI.
 
 fastDeploy's CLI is a simple, helpful wrapper over docker.
+
+**See the complete list of commands supported [here]().**
 ```bash
-python fastDeploy.py --help
+# See the arguments supported.
+./fastDeploy.py --help
 
-# Build local directory
-python fastDeploy.py --name flair_ner --source_dir ../flair_ner_recipie_dir
+# Build from directory.
+./fastDeploy.py --build build_name --source_dir ../directory_path
 
-# Build from download link (of zipped source dir/ recipie)
-python fastDeploy.py --name flair_ner --zip_url DOWNLOADABLE_LINK
+# Commit your build.
+./fastDeploy.py --commit build_name
+
+# Run your build.
+./fastDeploy.py --run build_name
 ```
 
 
