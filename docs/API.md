@@ -156,7 +156,7 @@ The response can be obtained by poling endpoint `/result` or via a webhook (if p
   }
 ```
 
-## Poling/ Response API
+## Endpoint: RESULT/ POLING
 - Result for a `/async` request can be obtained by poling the endpoint `/result`
 
 **Request format**
