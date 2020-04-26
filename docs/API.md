@@ -22,7 +22,10 @@ This section describes API reqeust and response formats, endpoints supported by 
 See **[Best Practices]()** for notes about getting the most out of your hardware.
 
 
-fastDeploy supports two types of inputs, `JSON` and `FILE` and two API endpoints, `sync` and `async` for running inference.
+fastDeploy supports two types of inputs: `JSON` and `FILE`, two API endpoints: `sync` and `async`.
+
+**Input/ Request Type:** 
+
 
 ## Request Type: FILE
 
@@ -98,35 +101,34 @@ response = requests.post("http://IP:PORT/async", json = {'data': data}).json()
 
 **On Success**
 - FILE
-  ```json
-  {
-    {
-      "prediction": {
-        "1.png": ..,
-        "2.png": ..
-      }, 
-      "success": True
-    }
-  }
-  ```
+```json
+{
+  "prediction": {
+    "1.png": ..,
+    "2.png": ..
+  }, 
+  "success": True
+}
+```
+
 - JSON
-  ```json
-  {
-    "prediction": [
-      PRED_1,
-      PRED_2
-    ], 
-    "success": True
-  }
-  ```
+```json
+{
+  "prediction": [
+    PRED_1,
+    PRED_2
+  ], 
+  "success": True
+}
+```
 
 **On Fail**: 
-  ```json
-    {
-        "success": False,
-        "reason": REASON
-    }
-  ```
+```json
+{
+  "success": False,
+  "reason": REASON
+}
+```
 
 ## Endpoint: ASYNC
 
@@ -142,29 +144,29 @@ The response can be obtained by poling endpoint `/result` or via a webhook (if p
   - If webhook is specified, manager loop calls the webhook with the result and the unique_id.
   - [requestcatcher](https://requestcatcher.com/), [webhook.site](https://webhook.site/) .. provide free, in-browser private webhook listener for testing.
 **On success**
-  ```json
-  {
-    "unique_id": "string_unique_id", 
-    "success": True
-  }
-  ```
+```json
+{
+  "unique_id": "string_unique_id", 
+  "success": True
+}
+```
 **On Fail**: 
 ```json
-  {
-      "success": False,
-      "reason": REASON
-  }
+{
+  "success": False,
+  "reason": REASON
+}
 ```
 
 ## Endpoint: RESULT/ POLING
 - Result for a `/async` request can be obtained by poling the endpoint `/result`
 
 **Request format**
-  ```json
-  {
-    "unique_id": "string_unique_id"
-  }
-  ```
+```json
+{
+  "unique_id": "string_unique_id"
+}
+```
 
 ```python
 import requests
