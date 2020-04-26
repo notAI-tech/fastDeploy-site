@@ -2,6 +2,7 @@
 layout: default
 title: fastDeploy CLI
 nav_order: 8
+permalink: /cli
 ---
 
 # CLI arguments and their description

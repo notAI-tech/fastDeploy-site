@@ -2,6 +2,7 @@
 layout: default
 title: Recipies
 nav_order: 2
+permalink: /recipies
 ---
 
 # Recipies
