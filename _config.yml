@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: FastDeploy
+title: fastDeploy
 email: praneeth@notai.tech
 description: >- # this means to ignore newlines until "baseurl:"
   fastDeploy enables you to build production ready APIs for Deep Learning models,
