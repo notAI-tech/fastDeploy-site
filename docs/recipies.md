@@ -20,9 +20,9 @@ We provide pre-built images for various Deep Learning models. Each recipie is a 
 ---
 
 ## Building your own recipie/ deployment.
-A recipie is just a directory with your model's code and files.
-
-Apart from your model code and files, a recipie directory must contain `predictor.py`, `example.pkl`, and `requirements.txt`.
+- A recipie is just a directory with your model's code and files.
+- Apart from your model code and files, a recipie directory must contain `predictor.py`, `example.pkl`, and `requirements.txt`.
+- If the recipie directory contains a bash script named `extras.sh`, it will be run at the start of build.
 
 **requiremets.txt**
 Example:
