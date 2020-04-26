@@ -73,10 +73,10 @@ JSON input is intended for inputs that can be sent as json, i.e: Text based mode
 **Request format**
 ```json
 {
-  "data": {
-    "1.png": "base64 encoded 1.png",
-    "2.png": "base64 encoded 2.png"
-  }
+  "data": [
+    some_json_object_1 (string/list/dict ...),
+    some_json_object_1 (string/list/dict ...),
+  ]
 }
 ```
 **Python example**
@@ -132,7 +132,7 @@ response = requests.post("http://IP:PORT/async", json = {'data': data}).json()
 
 `/async` is the endpoint for async inference. i.e: a `unique_id` is returned in response to the request.
 
-The response can be obtained by poling endpoint `/res` or via a webhook (if provided).
+The response can be obtained by poling endpoint `/result` or via a webhook (if provided).
 
 **Webhook**
   - Apart from the usual "data" key, async accepts another **optional parameter** `webhook`.
@@ -157,7 +157,7 @@ The response can be obtained by poling endpoint `/res` or via a webhook (if prov
 ```
 
 ## Poling/ Response API
-- Result for a `/async` request can be obtained by poling the endpoint `/res`
+- Result for a `/async` request can be obtained by poling the endpoint `/result`
 
 **Request format**
   ```json
@@ -165,5 +165,12 @@ The response can be obtained by poling endpoint `/res` or via a webhook (if prov
     "unique_id": "string_unique_id"
   }
   ```
+
+```python
+import requests
+
+result = requests.post("http://IP:PORT/result", json={"unique_id": UNIQUE_ID}).json()
+status = result['status']
+```
 
 Response is same as `/sync`
