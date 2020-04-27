@@ -47,38 +47,29 @@ fastDeploy has two major components.
 
 3. Request/ response state handling, extras such as webhooks, are done independently via a index maintained in memory, and does not affect the inference performance.
 
+4. Why tmpfs and disk writes?
+    - Our empirical observation is that performance of tmpfs, redis is similar.
+    - In most of our experiments, even without using tmpfs (only disk writes) the performance was very good because of Linux kernel's caching.
+
 ## Advantages of this design
 
-1. fastDeploy is an end-to-end serving solution for any type of model that can benefit from batching.
+1. End-to-End serving with miniscule overhead.
     1. For example, to deploy a image classification model via tensorflow serving, image pre-processing steps have to performed separately.
-    2. this requires you to have different code for training and inference.
-    3. fastDeploy serves the entite Deep Learning system, including the lightweight preprocessing steps required.
+    2. this way, we can serve the entite Deep Learning system, including the lightweight preprocessing steps required.
 
 2. Features: supports sync, async apis, webhooks and file, json inputs, client side batching, server side batching.
 
 3. Supports all deep learning toolkits. (PyTorch, Tensorflow, Keras, Kaldi ..  all support batching.)
 
-3. Well tested and benchmarked.
-    1. By design, fastDeploy's serving performance will always be more than sequential predictions.
-    2. In all of our benchmarks, fastDeploy is significantly faster than tensorflow serving.
-
-4. Recipies.
-    1. We provide fastDeploy builds for various popular deep learning based libraries.
-    2. Most of the general use-cases are covered in our recipies and can be used as starting point for your builds.
-
-5. Training to Production pipelining as fast as possible.
-    1. With fastDeploy, you can put your latest DL model in production in just two commands.
-    2. Once built, the build image (docker image) can be re-used on any machine without re-installing or re-downloading the requirements.
-
+4. The only extra dependecies needed are the API server reqs. 
 
 
 ## Disadvantages
 
 This design has two obvious disadvantages.
 
-1. docker supports `--tmpfs` only on linux. This means, fastDeploy's `/sync` will be very slow on mac and windows.
-    1. Because of this, fastDeploy is essentially limited to linux.
-    2. Note that, `/async` will work on all platforms as expected.
+1. docker supports `--tmpfs` only on linux. This means, fastDeploy's `/sync` will be (very slightly) slower on mac and windows.
+    - "Slightly" because, all major kernels (linux, windows) implement disk caching very well. 
 
 2. Horizontal Scaling and `/async`.
     1. Both `async`, `sync` work with horizontal and vertical scaling. But, `async` should only be used with webhooks if horizontally scaling.
