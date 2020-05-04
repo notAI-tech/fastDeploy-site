@@ -1,11 +1,11 @@
 ---
 layout: default
-title: Recipies
+title: Recipes
 nav_order: 2
-permalink: /recipies
+permalink: /recipes
 ---
 
-# Recipies
+# Recipes
 {: .no_toc }
 
 We provide pre-built images for various Deep Learning models. Each recipie is a directory with the corresponding `predictor.py` and `example.pkl` 
@@ -81,7 +81,7 @@ if __name__ == '__main__:
 
 **Based on**: [keras-ocr](https://github.com/faustomorales/keras-ocr/), [CRAFT-pytorch](https://github.com/clovaai/CRAFT-pytorch)
 
-**View Code**: [On Github](https://github.com/notAI-tech/fastDeploy/tree/prototype/recipies/craft_text_detection)
+**View Code**: [On Github](https://github.com/notAI-tech/fastDeploy/tree/prototype/recipes/craft_text_detection)
 
 CRAFT recipie uses the FILE format.
 

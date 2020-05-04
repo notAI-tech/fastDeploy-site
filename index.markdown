@@ -36,7 +36,7 @@ fastDeploy provides a convenient way to serve DL/ ML models with minimal extra c
 fastDeploy's CLI is a simple, helpful wrapper over docker.
 
 - See the complete list of commands supported [here](./cli).
-- Learn about the structure of source_dir [here](./recipies).
+- Learn about the structure of source_dir [here](./recipes).
 
 ```bash
 # See the arguments supported.

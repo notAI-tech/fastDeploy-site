@@ -64,4 +64,4 @@ with multiprocessing.Pool(2) as pool:
     preprocessed_examples = pool.mape(preprocess, in_examples)
 ```
 9. Note that, multiprocessing might cause some problems depending on what `preprocess` and `postprocess` function actually do. 
-10. Please take a look at the ....... recipies to see how we use multiprocessing.
+10. Please take a look at the ....... recipes to see how we use multiprocessing.
