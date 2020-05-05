@@ -27,11 +27,7 @@ fastDeploy provides a convenient way to serve DL/ ML models with minimal extra c
 
 [Docker](https://docs.docker.com/install/) is the only dependency.
 
-### Quick start: Build the deployment via Web Interface.
-
-**COMING SOON**
-
-### Quick start: Build the deployment via CLI.
+### Quick start: Run a pre-built fastDeploy recipe via CLI.
 
 fastDeploy's CLI is a simple, helpful wrapper over docker.
 
@@ -39,17 +35,14 @@ fastDeploy's CLI is a simple, helpful wrapper over docker.
 - Learn about the structure of source_dir [here](./recipes).
 
 ```bash
-# See the arguments supported.
+# See all the arguments supported.
 ./fastDeploy.py --help
 
-# Build from directory.
-./fastDeploy.py --build build_name --source_dir ../directory_path
+# Print list of available recipes with descriptions.
+./fastDeploy.py --list_recipes
 
-# Commit your build.
-./fastDeploy.py --commit build_name
-
-# Run your build.
-./fastDeploy.py --run build_name
+# Run a recipe (eg: craft_text_detection).
+./fastDeploy.py --run craft_text_detection --name craft_text_detection_test_run
 ```
 
 
