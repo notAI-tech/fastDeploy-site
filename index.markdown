@@ -33,6 +33,7 @@ fastDeploy's CLI is a simple, helpful wrapper over docker.
 
 - See the complete list of commands supported [here](./cli).
 - Learn about the structure of source_dir [here](./recipes).
+- List of API endpoints and request-response formats are detailed [here](./api).
 
 ```bash
 # See all the arguments supported.

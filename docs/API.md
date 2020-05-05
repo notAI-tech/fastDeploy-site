@@ -2,6 +2,7 @@
 layout: default
 title: API interface
 nav_order: 3
+permalink: /api
 ---
 
 # API interface
