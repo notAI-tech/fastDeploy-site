@@ -8,7 +8,7 @@ permalink: /recipes
 # Recipes
 {: .no_toc }
 
-We provide pre-built images for various Deep Learning models. Each recipie is a directory with the corresponding `predictor.py` and `example.pkl` 
+We provide pre-built images for various Deep Learning models. Each recipe is a directory with the corresponding `predictor.py` and `example.pkl` 
 {: .fs-6 .fw-300 }
 
 ## Table of contents
@@ -19,10 +19,10 @@ We provide pre-built images for various Deep Learning models. Each recipie is a 
 
 ---
 
-## Building your own recipie/ deployment.
-- A recipie (source_dir) is just a directory with your model's code and files.
-- Apart from your model code and files, a recipie directory must contain `predictor.py`, `example.pkl`, and `requirements.txt`.
-- If the recipie directory contains a bash script named `extras.sh`, it will be run at the start of build.
+## Building your own recipe/ deployment.
+- A recipe (source_dir) is just a directory with your model's code and files.
+- Apart from your model code and files, a recipe directory must contain `predictor.py`, `example.pkl`, and `requirements.txt`.
+- If the recipe directory contains a bash script named `extras.sh`, it will be run at the start of build.
 
 **requiremets.txt**
 Example:
@@ -72,7 +72,7 @@ if __name__ == '__main__:
     
 ```
 
-**Going through a relevant recipie's code might be helpful in understanding how `predictor.py` should be written.**
+**Going through a relevant recipe's code might be helpful in understanding how `predictor.py` should be written.**
 
 
 ## CRAFT Text Detection:
@@ -83,7 +83,7 @@ if __name__ == '__main__:
 
 **View Code**: [On Github](https://github.com/notAI-tech/fastDeploy/tree/prototype/recipes/craft_text_detection)
 
-CRAFT recipie uses the FILE format.
+CRAFT recipe uses the FILE format.
 
 ```
 

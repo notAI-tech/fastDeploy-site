@@ -21,7 +21,7 @@ This section describes the arguments accepted by fastDeploy's CLI and their desc
 ## Optional:
 - **port**: the port on which the APIs run.
 - **extra_config**: (If) Any environment variables.
-- **source_dir** model/recipie source directory for building.
+- **source_dir** model/recipe source directory for building.
 
 
 # Building a Deployment:

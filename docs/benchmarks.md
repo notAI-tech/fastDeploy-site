@@ -23,7 +23,7 @@ nav_order: 7
 
 This section benchmarks the overhead added by fastDeploy in different scenarios.
 
-| Recipie       | Concurrency | Total Time | Overhead | Dropped Requests|
+| Recipe       | Concurrency | Total Time | Overhead | Dropped Requests|
 |:-------------:|:-----------:|:----------:|:--------:|:---------------:|
 | Dummy Json    |             |            |          |                 |
 | Dummy File    |             |            |          |                 |
