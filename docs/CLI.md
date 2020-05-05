@@ -1,7 +1,7 @@
 ---
 layout: default
 title: fastDeploy CLI
-nav_order: 8
+nav_order: 2
 permalink: /cli
 ---
 

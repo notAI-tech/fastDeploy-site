@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Best Practices
-nav_order: 4
+nav_order: 8
 ---
 
 # Some notes about maximizing inference throughput.
