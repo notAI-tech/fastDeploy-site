@@ -12,7 +12,7 @@ permalink: /
 fastDeploy provides a convenient way to serve DL/ ML models with minimal extra code. 
 {: .fs-6 .fw-300 }
 
-[Download CLI](https://raw.githubusercontent.com/notAI-tech/fastDeploy/master/cli/fastDeploy.py){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [View it on GitHub](https://github.com/notAI-tech/fastDeploy){: .btn .fs-5 .mb-4 .mb-md-0 }
+[Download CLI](https://raw.githubusercontent.com/notAI-tech/fastDeploy/master/cli/fastDeploy.py){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [View on GitHub](https://github.com/notAI-tech/fastDeploy){: .btn .fs-5 .mb-4 .mb-md-0 }
 
 ---
 
