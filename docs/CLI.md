@@ -31,6 +31,7 @@ docker commit temp_craft_text_detection craft_text_detection (or craft_text_dete
 ```bash
 # sudo might be required
 docker tag craft_text_detection dockerhub_username/repo_name:craft_text_detection
+docker push dockerhub_username/repo_name:craft_text_detection
 ```
 
 - **run**: runs a build.
