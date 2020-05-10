@@ -15,7 +15,7 @@ nav_order: 8
 
 ---
 
-<INCOMPLETE>
+===========INCOMPLETE===========
 
 ## Unused Resources are wasted Resources:
 1. Our aim is to get the maximum inference throughput from any hardware.
@@ -59,4 +59,4 @@ def predictor(in_examples=[], batch_size):
 
 8. If our preprocessing/ postprocessing functions are not in-expensive, using multiprocessing helps.
 
-<TO BE UPDATED>
+============TO BE UPDATED=========
