@@ -15,6 +15,8 @@ nav_order: 8
 
 ---
 
+<INCOMPLETE>
+
 ## Unused Resources are wasted Resources:
 1. Our aim is to get the maximum inference throughput from any hardware.
 2. For instance, take a look at the following predictor function.
@@ -56,12 +58,5 @@ def predictor(in_examples=[], batch_size):
 7. As we are taking advantage of batching for the most expensive operation (inference) in predictor, this is very efficient compared to the above snippet.
 
 8. If our preprocessing/ postprocessing functions are not in-expensive, using multiprocessing helps.
-```python
-import multiprocessing
-in_examples = [...]
-# 2 parallel processes
-with multiprocessing.Pool(2) as pool:
-    preprocessed_examples = pool.mape(preprocess, in_examples)
-```
-9. Note that, multiprocessing might cause some problems depending on what `preprocess` and `postprocess` function actually do. 
-10. Please take a look at the ....... recipes to see how we use multiprocessing.
+
+<TO BE UPDATED>
