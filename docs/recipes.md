@@ -77,15 +77,85 @@ if __name__ == '__main__:
 
 ## CRAFT Text Detection:
 
+```bash
+./fastDeploy.py --run craft_text_detection
+```
+
 **Arxiv**: [https://arxiv.org/abs/1904.01941](https://arxiv.org/abs/1904.01941)
 
 **Based on**: [keras-ocr](https://github.com/faustomorales/keras-ocr/), [CRAFT-pytorch](https://github.com/clovaai/CRAFT-pytorch)
 
-**View Code**: [On Github](https://github.com/notAI-tech/fastDeploy/tree/prototype/recipes/craft_text_detection)
+**View Code**: [On Github](https://github.com/notAI-tech/fastDeploy/tree/master/recipes/craft_text_detection)
 
 CRAFT recipe uses the FILE format.
 
+
+
+## DeepSegment_en/fr/it:
+
+```bash
+# English
+./fastDeploy.py --run deepsegment_en
+
+# French
+./fastDeploy.py --run deepsegment_fr
+
+# Italian
+./fastDeploy.py --run deepsegment_it
 ```
 
+**Arxiv**: N/A
 
-## 
+**Based on**: [DeepSegment](https://github.com/bedapudi6788/deepsegment)
+
+**View Code**: [On Github](https://github.com/notAI-tech/fastDeploy/tree/master/recipes/deepsegment)
+
+DeepSegment recipe(s) uses the JSON format.
+
+
+## HuggingFace Transformer_summarization/ner/sentiment
+
+```bash
+# Summarization
+./fastDeploy.py --run transformer_summarization
+
+# Named Entity Recognition
+./fastDeploy.py --run transformer_ner
+
+# Sentiment Analysis
+./fastDeploy.py --run transformer_sentiment
+```
+
+**Arxiv**: N/A
+
+**Based on**: [Transformers](https://github.com/huggingface/transformers)
+
+**View Code**: [On Github](https://github.com/notAI-tech/fastDeploy/tree/master/recipes/huggingface_transformers)
+
+Transformer recipe(s) uses the JSON format.
+
+
+## NudeClassifier
+```bash
+# Summarization
+./fastDeploy.py --run nudeclassifier
+```
+
+**Arxiv**: N/A
+
+**Based on**: [NudeNet](https://github.com/bedapudi6788/NudeNet)
+
+**View Code**: [On Github](https://github.com/notAI-tech/fastDeploy/tree/master/recipes/nudeclassifier)
+
+## YamNet Audio Classification
+
+```bash
+# Summarization
+./fastDeploy.py --run audioclassifier_yamnet
+```
+
+**Arxiv**: N/A
+
+**Based on**: [yamnet](https://github.com/tensorflow/models/tree/master/research/audioset/yamnet)
+
+**View Code**: [On Github](https://github.com/notAI-tech/fastDeploy/tree/master/recipes/audio_classification_yamnet)
