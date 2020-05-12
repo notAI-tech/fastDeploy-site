@@ -41,7 +41,7 @@ from my_model import prediction_function
 
 def predictor(inputs=[], batch_size=1):
     preds = []
-    while True:
+    while inputs:
         batch_inputs = inputs[:batch_size]
         inputs = inputs[batch_size:]
 
@@ -62,14 +62,13 @@ if __name__ == '__main__:
 
     # Verify that predictor works as expected
     preds = predictor(sample_inputs)
-
     assert len(preds) == len(sample_inputs)
 
     # Verify that the predictions are json serializable
     json.dumps(preds)
 
-    pickle.dump(sample_inputs, open('example.pkl', 'w'))
-    
+    pickle.dump(sample_inputs, open('example.pkl', 'wb'))
+
 ```
 
 **Going through a relevant recipe's code might be helpful in understanding how `predictor.py` should be written.**
@@ -137,7 +136,6 @@ Transformer recipe(s) uses the JSON format.
 
 ## NudeClassifier
 ```bash
-# Summarization
 ./fastDeploy.py --run nudeclassifier
 ```
 
@@ -150,7 +148,6 @@ Transformer recipe(s) uses the JSON format.
 ## YamNet Audio Classification
 
 ```bash
-# Summarization
 ./fastDeploy.py --run audioclassifier_yamnet
 ```
 

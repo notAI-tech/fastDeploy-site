@@ -2,14 +2,14 @@
 layout: default
 title: Quick start
 nav_order: 1
-description: "fastDeploy enables you to build production ready APIs for Deep Learning models."
+description: "Deploy any DL/ ML inference pipelines with minimal extra code."
 permalink: /
 ---
 
 # ML/DL models -> scalable, efficient and configurable API deployments.
 {: .fs-9 }
 
-fastDeploy provides a convenient way to serve DL/ ML models with minimal extra code. 
+Deploy DL/ ML inference pipelines with minimal extra code.
 {: .fs-6 .fw-300 }
 
 [Download CLI](https://raw.githubusercontent.com/notAI-tech/fastDeploy/master/cli/fastDeploy.py){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [View on GitHub](https://github.com/notAI-tech/fastDeploy){: .btn .fs-5 .mb-4 .mb-md-0 }
