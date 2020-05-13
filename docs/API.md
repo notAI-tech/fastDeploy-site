@@ -9,7 +9,7 @@ permalink: /api
 {: .no_toc }
 
 
-This section describes API reqeust and response formats, endpoints supported by fastDeploy. 
+This section describes API request and response formats, endpoints supported by fastDeploy. 
 {: .fs-6 .fw-300 }
 
 ## Table of contents

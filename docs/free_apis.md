@@ -11,9 +11,7 @@ Signup [**here**](https://tech.notai.tech/signup) for free API key.
 
 - We don't send any verification emails/ spam or store your email publicly.
 
-- You are allowed to use fake email ids (eg: a@amail.com) while signing up.
-
-- For obvious reasons, `/sync` is not enabled on the APIs we provide. `/async`, `/result`, webhooks, client side batching, work as expected.
+- `/sync` is not enabled on the APIs we provide. `/async`, `/result`, webhooks, client side batching, work as expected.
 
 **Limit**: Maximum number of requests allowed per hour.
 
