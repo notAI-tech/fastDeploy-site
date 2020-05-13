@@ -22,7 +22,7 @@ We provide pre-built images for various Deep Learning models. Each recipe is a d
 ## Building your own recipe/ deployment.
 - A recipe (source_dir) is just a directory with your model's code and files.
 - Apart from your model code and files, a recipe directory must contain `predictor.py`, `example.pkl`, and `requirements.txt`.
-- If the recipe directory contains a bash script named `extras.sh`, it will be run at the start of build.
+- If the recipe directory contains a bash script named `extras.sh`, it will be run at the start of the build.
 
 **requiremets.txt**
 Example:

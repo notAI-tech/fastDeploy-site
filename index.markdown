@@ -6,7 +6,7 @@ description: "Deploy any DL/ ML inference pipelines with minimal extra code."
 permalink: /
 ---
 
-# ML/DL models -> scalable, efficient and configurable API deployments.
+# ML/DL models -> scalable, efficient, and configurable API deployments.
 {: .fs-9 }
 
 Deploy DL/ ML inference pipelines with minimal extra code.
@@ -27,7 +27,7 @@ Deploy DL/ ML inference pipelines with minimal extra code.
 
 [Docker](https://docs.docker.com/install/) is the only dependency.
 
-### Quick start: Run a pre-built fastDeploy recipe via CLI.
+### Quickstart: Run a pre-built fastDeploy recipe via CLI.
 
 fastDeploy's CLI is a simple, helpful wrapper over docker.
 

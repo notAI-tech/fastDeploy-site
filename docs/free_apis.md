@@ -7,17 +7,17 @@ permalink: /free_apis
 
 # Description of Free to Use APIs we provide
 
-Signup [**here**](https://tech.notai.tech/signup) for free API key.
+Signup [**here**](https://tech.notai.tech/signup) for a free API key.
 
 - We don't send any verification emails/ spam or store your email publicly.
 
-- `/sync` is not enabled on the APIs we provide. `/async`, `/result`, webhooks, client side batching, work as expected.
+- `/sync` is not enabled on the APIs we provide. `/async`, `/result`, webhooks, client-side batching, work as expected.
 
 **Limit**: Maximum number of requests allowed per hour.
 
-**Batch Size**: Maximum Client side batch size allowed per request.
+**Batch Size**: Maximum client-side batch size allowed per request.
 
-- For example, Limit = 16 and Batch size = 4, allows you to process maximum of 64 examples per hour.
+- For example, Limit = 16 and Batch size = 4, allows you to process a maximum of 64 examples per hour.
 
 - `/result` requests are not counted against the LIMIT.
 - All `/result` requests are capped at 4 requests per minute.
