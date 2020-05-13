@@ -15,6 +15,10 @@ Signup [**here**](https://tech.notai.tech/signup) for free API key.
 
 - For obvious reasons, `/sync` is not enabled on the APIs we provide. `/async`, `/result`, webhooks, client side batching, work as expected.
 
+**Limit**: Maximum number of requests allowed per hour.
+**Batch Size**: Maximum Client side batch size allowed per request.
+
+- For example, Limit = 16 and Batch size = 4, allows you to process maximum of 64 examples per hour.
 
 | Recipe                                                                    | URL                                              | Limit| Batch Size |
 |:-------------------------------------------------------------------------:|:------------------------------------------------:|:----:|:----------:|
