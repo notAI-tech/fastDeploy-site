@@ -13,7 +13,7 @@ Signup at [**https://tech.notai.tech**](https://tech.notai.tech/) for your free 
 
 - You are allowed to use fake email ids (eg: a@amail.com) while signing up.
 
-- For obvious reasons, `/sync` is not enabled on the APIs we provide. `/async`, `/result`, webhooks, client side batching, work as expected
+- For obvious reasons, `/sync` is not enabled on the APIs we provide. `/async`, `/result`, webhooks, client side batching, work as expected.
 
 
 | Recipe                                                                    | URL                                              | Limit| Batch Size |
