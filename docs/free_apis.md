@@ -30,13 +30,13 @@ The request/response structure is explained [**here.**](https://fastdeploy.notai
 
 Async with webhook example.
 ```bash
-curl -d '{"data": ["are we gonna hate each other some day I ordered a pizza I was hungry"], "webhook": "https://fastdeploy.requestcatcher.com"}' -H "Content-Type: application/json" "https://tech.notai.tech/deepsegment/en/async?api_key=API_KEY"
+curl -d '{"data": ["text_1", "text_2"], "webhook": "https://fastdeploy.requestcatcher.com"}' -H "Content-Type: application/json" "https://tech.notai.tech/deepsegment/en/async?api_key=API_KEY"
 ```
 
 ```python
 import requests
 
-data = {"data": ["are we gonna hate each other some day I ordered a pizza I was hungry"], "webhook": "https://fastdeploy.requestcatcher.com"}
+data = {"data": ["text_1", "text_2"], "webhook": "https://fastdeploy.requestcatcher.com"}
 
 requests.post('https://tech.notai.tech/deepsegment/en/async', params={'api_key': API_KEY}, json=data).json()
 ```
