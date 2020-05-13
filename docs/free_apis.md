@@ -16,10 +16,10 @@ Signup at [**https://tech.notai.tech**](https://tech.notai.tech/) for your free 
 - For obvious reasons, `/sync` is not enabled on the APIs we provide. `/async`, `result`, webhooks, client side batching, work as expected
 
 
-| Recipe        | URL                                         | Req Limit/hr | Max batch size per req | Short Description |
-|:-------------:|:------------------------------------------: |:-------------:|:---------------------:|:---------------------:|
-|[deepsegment_en](https://fastdeploy.notai.tech/recipes#deepsegment_enfrit) |https://tech.notai.tech/deepsegment/en/async |     64        |        16             |Segments text into sentences.|
-|[efficientnet_b2]()|https://tech.notai.tech/efficientnet/b2/async|      16        |          4           |Generic (imagenet) image classification|
+| Recipe                                                                    | URL                                              | Limit| Batch Size |
+|:-------------------------------------------------------------------------:|:------------------------------------------------:|:----:|:----------:|
+|[deepsegment_en](https://fastdeploy.notai.tech/recipes#deepsegment_enfrit) |https://tech.notai.tech/deepsegment/en/async      |64|16|
+|[efficientnet_b2]()                                                        |https://tech.notai.tech/efficientnet/b2/async     |16|4|
 
 
 
