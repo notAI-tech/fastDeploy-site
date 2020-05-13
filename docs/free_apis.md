@@ -7,7 +7,7 @@ permalink: /free_apis
 
 # Description of Free to Use APIs we provide
 
-Signup at [**https://tech.notai.tech**](https://tech.notai.tech/) for your free API key.
+Signup [**here**](https://tech.notai.tech/signup) for free API key.
 
 - We don't send any verification emails/ spam or store your email publicly.
 
@@ -22,7 +22,9 @@ Signup at [**https://tech.notai.tech**](https://tech.notai.tech/) for your free 
 |[efficientnet_b2]()                                                        |https://tech.notai.tech/efficientnet/b2/async     |16|4|
 
 
+The request/response structure is explained [**here.**](https://fastdeploy.notai.tech/api)
 
+Async with webhook example.
 ```bash
 curl -d '{"data": ["are we gonna hate each other some day I ordered a pizza I was hungry"], "webhook": "https://fastdeploy.requestcatcher.com"}' -H "Content-Type: application/json" "https://tech.notai.tech/deepsegment/en/async?api_key=API_KEY"
 ```
