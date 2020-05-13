@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Quick start
+title: Quickstart
 nav_order: 1
 description: "Deploy any DL/ ML inference pipelines with minimal extra code."
 permalink: /
