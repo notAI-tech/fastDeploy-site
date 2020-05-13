@@ -27,7 +27,7 @@ Signup [**here**](https://tech.notai.tech/signup) for a free API key.
 |:-------------------------------------------------------------------------:|:------------------------------------------------:|:----:|:----------:|
 |[deepsegment_en](https://github.com/bedapudi6788/deepsegment) |https://tech.notai.tech/deepsegment/en/async      |64|16|
 |[efficientnet_b2](https://github.com/qubvel/efficientnet)|https://tech.notai.tech/efficientnet/b2/async     |16|4|
-|[kaldi_vosk-en_us-aspire](https://github.com/alphacep/vosk-api/blob/master/doc/models.md)|https://tech.notai.tech/efficientnet/b2/async     |16|4|
+|[kaldi_vosk-en_us-aspire](https://github.com/alphacep/vosk-api/blob/master/doc/models.md)|https://tech.notai.tech/kaldi/vosk_aspire/async     |16|4|
 
 **Notes**:
 - `kaldi_vosk-en_us-aspire` only processes the first 30 seconds of longer audios. i.e: A user is allowed to process `32 minutes` of audio per hour.
