@@ -21,6 +21,10 @@ Signup [**here**](https://tech.notai.tech/signup) for free API key.
 
 - For example, Limit = 16 and Batch size = 4, allows you to process maximum of 64 examples per hour.
 
+- `/result` requests are not counted against the LIMIT.
+- All `/result` requests are capped at 4 requests per minute.
+- We strongly encourage users to use webhooks.  
+
 | Recipe                                                                    | URL                                              | Limit| Batch Size |
 |:-------------------------------------------------------------------------:|:------------------------------------------------:|:----:|:----------:|
 |[deepsegment_en](https://fastdeploy.notai.tech/recipes#deepsegment_enfrit) |https://tech.notai.tech/deepsegment/en/async      |64|16|
