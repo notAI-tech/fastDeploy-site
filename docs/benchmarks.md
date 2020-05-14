@@ -58,7 +58,7 @@ for _ in range(3):
 
 in_data = list(example * 10000)
 
-for batch_size in [8, 16, 32, 64, 128]:
+for batch_size in [1, 8, 32, 64, 128, 256, 512]:
     start = time()
     results = model.segment(in_data, batch_size)
     end = time()
