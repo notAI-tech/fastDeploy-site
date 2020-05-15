@@ -22,55 +22,38 @@ nav_order: 7
 
 ## Benchmakring process
 
-- We use efficientnet_b2 (FILE input) and deepsegment_en (JSON input) recipes for our benchmarks.
+- We use `efficientnet_b2` (FILE input), `deepsegment_en` (JSON input) and `transformers_ner` (JSON input) recipes for our benchmarks.
 - EfficientNet B2 is an image classifier CNN and DeepSegment is a sequence tagger BiLSTM+CRF.
 
-- **Batch Size**: indicates the client side batch size used in request to fastDeploy; (and) the batch size in model.predict call for baseline benchmark. 
-- **Baseline**: Total time in seconds for baseline prediction for 10000 examples, averaged over 3 runs for a given `Batch Size`.
-- **fastDeploy**: Total time in seconds for fastDeploy prediction for 10000 examples, averaged over 3 runs for a given `Batch Size` and `Req Concurrency`.
+- **Batch Size**: indicates the client side batch size used in request to fastDeploy; (and) the batch size in model.predict call for native benchmark. 
+- **Native**: Total time in seconds for native prediction for 8192 examples, averaged over 3 runs for a given `Batch Size`. This is simply the best inference throughput possible on the hardware.
+- **fastDeploy**: Total time in seconds for fastDeploy prediction for 8192 examples, averaged over 3 runs for a given `Batch Size` and `Req Concurrency`.
 - **Req Concurrency**: Max number of simultaneous reqeusts for benchmakring fastDeploy.
-- **Overhead**: Overhead (in seconds) added by fastDeploy.
+- **Overhead**: Overhead per request (in seconds) added by fastDeploy.
 
 ## Benchmakring scripts
 
-- **DeepSegment**
+- **DeepSegment English**: 
+- **EfficientNet B2**: 
+- **Transformers NER**: 
 
-```bash
-# Install requirements.
-pip install --upgrade deepsegment==2.3.1
-pip install --upgrade tensorflow==1.14
-pip install --upgrade keras==2.2.4
-```
-
-```python
-from time import time
-from deepsegment import DeepSegment
-
-model = DeepSegment('en')
-
-example = ["I was hungry i ordered a pizza and i went to the movies which movie did you go to i watched dark knight rises oh how was it it was a good movie yeah thought so"]
-
-# Warmup
-for _ in range(3):
-    print(model.segment(example, batch_size=1)
-
-# Expected result is [['I was hungry', 'i ordered a pizza and i went to the movies', 'which movie did you go to', 'i watched dark knight rises', 'oh how was it', 'it was a good movie', 'yeah thought so']]
-
-in_data = list(example * 10000)
-
-for batch_size in [1, 8, 32, 64, 128, 256, 512]:
-    start = time()
-    results = model.segment(in_data, batch_size)
-    end = time()
-    print(f'\nBatch Size:{batch_size}  Total Time:{end - start} per {len(in_data)} examples.')
-
-```
 
 ## Benchmark Results
 
-This section benchmarks the overhead added by fastDeploy in different scenarios.
+All benchmarks are run with 8192 examples.
 
-| Recipe        | Batch Size  | Baseline   |Req Concurrency| fastDeploy| Overhead|
-|:-------------:|:-----------:|:----------:|:-------------:|:---------:|:-------:|
-|efficientnet_b2|             |            |               |           |         |
-| deepsegment_en|             |            |               |           |         |
+| Recipe        | Batch Size  | Native           |Req Concurrency| fastDeploy|
+|:-------------:|:-----------:|:----------------:|:-------------:|:---------:|
+|efficientnet_b2|             |                  |               |           |
+| deepsegment_en|      1      |63.105387926101685|      16       |     30.05 |
+| deepsegment_en|      1      |63.105387926101685|      256      |     27.1  |
+| deepsegment_en|      1      |63.105387926101685|      2048     |     27.44 |
+
+| deepsegment_en|      32     |6.848152160644531 |       16      |      11.05|
+| deepsegment_en|      32     |6.848152160644531 |       64      |       9.07|
+| deepsegment_en|      32     |6.848152160644531 |       256     |       9.01|
+
+| deepsegment_en|      128    |4.215409278869629 |    16         |   9.26   |
+| deepsegment_en|      128    |4.215409278869629 |    64         |    9.57  |
+
+
