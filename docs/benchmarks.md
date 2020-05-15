@@ -43,7 +43,7 @@ All benchmarks are run with 8192 examples.
 
 | Recipe        | Batch Size  | Native           |Req Concurrency| fastDeploy|
 |:-------------:|:-----------:|:----------------:|:-------------:|:---------:|
-|efficientnet_b2|             |                  |               |           |           |
+|efficientnet_b2|             |                  |               |           |
 | deepsegment_en|      1      |63.105387926101685|      1       |     79.06  |
 | deepsegment_en|      1      |63.105387926101685|      16       |     30.05 |
 | deepsegment_en|      1      |63.105387926101685|      256      |     27.1  |
