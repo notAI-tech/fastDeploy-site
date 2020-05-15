@@ -36,24 +36,24 @@ nav_order: 7
 - **EfficientNet B2**: 
 - **Transformers NER**: 
 
+## EfficientNet B2 benchmark:
 
-## Benchmark Results
+## Transformers NER benchmark:
+
+## DeepSegment English benchmark:
 
 All benchmarks are run with 8192 examples.
 
 | Recipe        | Batch Size  | Native           |Req Concurrency| fastDeploy|
 |:-------------:|:-----------:|:----------------:|:-------------:|:---------:|
-|efficientnet_b2|             |                  |               |           |
 | deepsegment_en|      1      |63.105387926101685|      1       |     79.06  |
 | deepsegment_en|      1      |63.105387926101685|      16       |     30.05 |
 | deepsegment_en|      1      |63.105387926101685|      256      |     27.1  |
 | deepsegment_en|      1      |63.105387926101685|      2048     |     27.44 |
-
 | deepsegment_en|      32     |6.848152160644531 |       1      |      8.06  |
 | deepsegment_en|      32     |6.848152160644531 |       16      |      11.05|
 | deepsegment_en|      32     |6.848152160644531 |       64      |       9.07|
 | deepsegment_en|      32     |6.848152160644531 |       256     |       9.01|
-
 | deepsegment_en|      128    |4.215409278869629 |    1         |   7.05   |
 | deepsegment_en|      128    |4.215409278869629 |    16         |   9.26   |
 | deepsegment_en|      128    |4.215409278869629 |    64         |    9.57  |
