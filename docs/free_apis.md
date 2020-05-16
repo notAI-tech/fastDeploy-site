@@ -23,16 +23,17 @@ Signup [**here**](https://tech.notai.tech/signup) for a free API key.
 - All `/result` requests are capped at 4 requests per minute.
 - We strongly encourage users to use webhooks.  
 
-| Recipe                                                                    | URL                                              | Limit| Batch Size |
-|:-------------------------------------------------------------------------:|:------------------------------------------------:|:----:|:----------:|
-|[deepsegment_en](https://github.com/bedapudi6788/deepsegment) |https://tech.notai.tech/deepsegment/en/async      |64|16|
-|[efficientnet_b2](https://github.com/qubvel/efficientnet)|https://tech.notai.tech/efficientnet/b2/async     |16|4|
-|[kaldi_vosk-en_us-aspire](https://github.com/alphacep/vosk-api/blob/master/doc/models.md)|https://tech.notai.tech/kaldi/vosk_aspire/async     |16|4|
-|[audio_classification_yamnet](https://github.com/tensorflow/models/blob/master/research/audioset/yamnet/)|https://tech.notai.tech/audio_classification/yamnet/async|32|8|
-|[craft_text_detection](https://github.com/faustomorales/keras-ocr/)|https://tech.notai.tech/text_detection/async	     |32|4|
-|[nudeclassifier](https://github.com/bedapudi6788/NudeNet)|https://tech.notai.tech/nudeclassifier/async		     |32|4|
-|[transformer_sentiment](https://github.com/huggingface/transformers)|https://tech.notai.tech/transformer/sentiment/async	     |32|8|
+**URL: https://tech.notai.tech**
 
+| Recipe                                                                    | Endpoint                                      | Limit| Batch Size | Input Type |
+|:-------------------------------------------------------------------------:|:------------------------------------------------:|:----:|:----------:|:----------:|
+|[deepsegment_en](https://github.com/bedapudi6788/deepsegment) |/deepsegment/en/async      |64|16| [JSON](https://fastdeploy.notai.tech/api#request-type-json) |
+|[efficientnet_b2](https://github.com/qubvel/efficientnet)|/efficientnet/b2/async     |16|4| [FILE](https://fastdeploy.notai.tech/api#request-type-file) |
+|[kaldi_vosk-en_us-aspire](https://github.com/alphacep/vosk-api/blob/master/doc/models.md)|/kaldi/vosk_aspire/async     |16|4| [FILE](https://fastdeploy.notai.tech/api#request-type-file) |
+|[audio_classification_yamnet](https://github.com/tensorflow/models/blob/master/research/audioset/yamnet/)|/audio_classification/yamnet/async|32|8| [FILE](https://fastdeploy.notai.tech/api#request-type-file) |
+|[craft_text_detection](https://github.com/faustomorales/keras-ocr/)|/text_detection/async	     |32|4| [FILE](https://fastdeploy.notai.tech/api#request-type-file) |
+|[nudeclassifier](https://github.com/bedapudi6788/NudeNet)|/nudeclassifier/async		     |32|4| [FILE](https://fastdeploy.notai.tech/api#request-type-file) |
+|[transformer_sentiment](https://github.com/huggingface/transformers)|/transformer/sentiment/async	     |32|8| [JSON](https://fastdeploy.notai.tech/api#request-type-json) |
 
 
 
@@ -44,11 +45,27 @@ Signup [**here**](https://tech.notai.tech/signup) for a free API key.
 
 The request/response structure is explained [**here.**](https://fastdeploy.notai.tech/api)
 
-Async with webhook example.
+**FILE input with CLI**
+```bash
+wget https://github.com/notAI-tech/fastDeploy/blob/master/cli/fastDeploy-file_client.py
+chmod +x fastDeploy-file_client.py
+
+# Single input
+./fastDeploy-file_client.py --file PATH_TO_YOUR_IMAGE --url https://tech.notai.tech/efficientnet/b2/async --webhook https://fastdeploy.requestcatcher.com
+
+# Client side batching
+./fastDeploy-file_client.py --dir PATH_TO_FOLDER --ext wav --url https://tech.notai.tech/audio_classification/yamnet/async --webhook https://fastdeploy.requestcatcher.com
+```
+
+**File input python example**: (https://fastdeploy.notai.tech/api#request-type-file](https://fastdeploy.notai.tech/api#request-type-file)
+
+
+**Async JSON with webhook example from bash**
 ```bash
 curl -d '{"data": ["text_1", "text_2"], "webhook": "https://fastdeploy.requestcatcher.com"}' -H "Content-Type: application/json" "https://tech.notai.tech/deepsegment/en/async?api_key=API_KEY"
 ```
 
+**Async JSON with webhook example from python**
 ```python
 import requests
 
