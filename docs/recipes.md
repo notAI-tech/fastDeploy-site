@@ -78,11 +78,13 @@ if __name__ == '__main__:
 
 
 # Text Detection in images
+
 |Name                         |Description                             |Based On|extra_config| Input Type|
 |:---------------------------:|:--------------------------------------:|:------:|:----------:|:---------:|
 |craft_text_detection |Multi-lingual Text Detection in images |[keras-ocr](https://github.com/faustomorales/keras-ocr/), [CRAFT-pytorch](https://github.com/clovaai/CRAFT-pytorch)|N/A|FILE|
 
 # Image Classification
+
 |Name                         |Description                             |Based On|extra_config| Input Type|
 |:---------------------------:|:--------------------------------------:|:------:|:----------:|:---------:|
 |efficientnet_b0 |Imagenet Image classification |[EfficientNet](https://github.com/qubvel/efficientnet)|N/A|FILE|
@@ -94,6 +96,7 @@ if __name__ == '__main__:
 
 
 # Sentence Splitting
+
 |Name                         |Description                             |Based On|extra_config| Input Type|
 |:---------------------------:|:--------------------------------------:|:------:|:----------:|:---------:|
 |deepsegment_en |Split English text into sentences |[DeepSegment](https://github.com/bedapudi6788/deepsegment)|N/A|JSON|
@@ -101,26 +104,31 @@ if __name__ == '__main__:
 |deepsegment_it |Split Italian text into sentences |[DeepSegment](https://github.com/bedapudi6788/deepsegment)|N/A|JSON|
 
 # Summarization
+
 |Name                         |Description                             |Based On|extra_config| Input Type|
 |:---------------------------:|:--------------------------------------:|:------:|:----------:|:---------:|
 |transformer_summarization  |English text summarization           |[Transformers](https://github.com/huggingface/transformers)|extra_config|JSON|
 
 # Named Entity Recognition
+
 |Name                         |Description                             |Based On|extra_config| Input Type|
 |:---------------------------:|:--------------------------------------:|:------:|:----------:|:---------:|
 |transformer_ner            |English Named Entity Recognition     |[Transformers](https://github.com/huggingface/transformers)|extra_config|JSON|
 
 # Sentiment Analysis
+
 |Name                         |Description                             |Based On|extra_config| Input Type|
 |:---------------------------:|:--------------------------------------:|:------:|:----------:|:---------:|
 |transformer_sentiment      |English Sentiment Analysis           |[Transformers](https://github.com/huggingface/transformers)|extra_config|JSON|
 
 # Translation
+
 |Name                         |Description                             |Based On|extra_config| Input Type|
 |:---------------------------:|:--------------------------------------:|:------:|:----------:|:---------:|
 |transformer_translation_en_to_fr  |English to French translation           |[Transformers](https://github.com/huggingface/transformers)|extra_config|JSON|
 
 # Speech Recognition
+
 |Name                         |Description                             |Based On|extra_config| Input Type|
 |:---------------------------:|:--------------------------------------:|:------:|:----------:|:---------:|
 |kaldi_vosk-en_us-small      |English speech recogniton           |[VOSK-api](https://github.com/alphacep/vosk-api/blob/master/doc/models.md)|extra_config|FILE|
