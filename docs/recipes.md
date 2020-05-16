@@ -73,8 +73,10 @@ if __name__ == '__main__:
 
 **Going through a relevant recipe's code might be helpful in understanding how `predictor.py` should be written.**
 
-
-
+- Running as recipe
+```bash
+./fastDeploy.py --run RECIPE_NAME
+```
 
 
 # Text Detection in images
@@ -107,30 +109,30 @@ if __name__ == '__main__:
 
 |Name                         |Description                             |Based On|extra_config| Input Type|
 |:---------------------------:|:--------------------------------------:|:------:|:----------:|:---------:|
-|transformer_summarization  |English text summarization           |[Transformers](https://github.com/huggingface/transformers)|extra_config|JSON|
+|transformer_summarization  |English text summarization           |[Transformers](https://github.com/huggingface/transformers)|MAX_LEN (default: 0 for no limit)|JSON|
 
 # Named Entity Recognition
 
 |Name                         |Description                             |Based On|extra_config| Input Type|
 |:---------------------------:|:--------------------------------------:|:------:|:----------:|:---------:|
-|transformer_ner            |English Named Entity Recognition     |[Transformers](https://github.com/huggingface/transformers)|extra_config|JSON|
+|transformer_ner            |English Named Entity Recognition     |[Transformers](https://github.com/huggingface/transformers)|MAX_LEN (default: 0 for no limit)|JSON|
 
 # Sentiment Analysis
 
 |Name                         |Description                             |Based On|extra_config| Input Type|
 |:---------------------------:|:--------------------------------------:|:------:|:----------:|:---------:|
-|transformer_sentiment      |English Sentiment Analysis           |[Transformers](https://github.com/huggingface/transformers)|extra_config|JSON|
+|transformer_sentiment      |English Sentiment Analysis           |[Transformers](https://github.com/huggingface/transformers)|MAX_LEN (default: 0 for no limit)|JSON|
 
 # Translation
 
 |Name                         |Description                             |Based On|extra_config| Input Type|
 |:---------------------------:|:--------------------------------------:|:------:|:----------:|:---------:|
-|transformer_translation_en_to_fr  |English to French translation           |[Transformers](https://github.com/huggingface/transformers)|extra_config|JSON|
+|transformer_translation_en_to_fr  |English to French translation           |[Transformers](https://github.com/huggingface/transformers)|MAX_LEN (default: 0 for no limit)|JSON|
 
 # Speech Recognition
 
 |Name                         |Description                             |Based On|extra_config| Input Type|
 |:---------------------------:|:--------------------------------------:|:------:|:----------:|:---------:|
-|kaldi_vosk-en_us-small      |English speech recogniton           |[VOSK-api](https://github.com/alphacep/vosk-api/blob/master/doc/models.md)|extra_config|FILE|
-|kaldi_vosk-en_us-aspire      |English speech recogniton           |[VOSK-api](https://github.com/alphacep/vosk-api/blob/master/doc/models.md)|extra_config|FILE|
+|kaldi_vosk-en_us-small      |English speech recogniton           |[VOSK-api](https://github.com/alphacep/vosk-api/blob/master/doc/models.md)|MAX_WAV_LEN (default: 0 for no limit)|FILE|
+|kaldi_vosk-en_us-aspire      |English speech recogniton           |[VOSK-api](https://github.com/alphacep/vosk-api/blob/master/doc/models.md)|MAX_WAV_LEN (default: 0 for no limit)|FILE|
 
