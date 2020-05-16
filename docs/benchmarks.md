@@ -33,7 +33,7 @@ nav_order: 7
 
 **As with any benchmark, you should take these numbers with a grain of salt. You should always run your own tests against your specific use case to discover what best suits your needs.**
 
-**All the benchmarks are run with default fastDeploy config. Note that, by using case specific MX_WAIT, BATCH_SIZE config, the numbers can be improved.**
+**All the benchmarks are run with no `extra_config` specified. Note that, by using case specific MX_WAIT, BATCH_SIZE config, the numbers can be improved.**
 
 
 
@@ -62,6 +62,35 @@ nav_order: 7
 ## Transformers NER benchmark:
 - Number of examples = 1024
 - Benchmarked on a 12-core `Intel(R) Xeon(R) CPU E5-2690 v3 @ 2.60GHz` with 32 GB memory.
+
+<!-- | Batch Size  | Native           |Req Concurrency| fastDeploy|
+|:-----------:|:----------------:|:-------------:|:---------:|
+|      1      |252.14714980125427|      1       |     79.06  |
+|      1      |63.105387926101685|      8       |     30.05 |
+|      1      |63.105387926101685|      16      |     27.1  |
+|      1      |63.105387926101685|      64     |     27.44 |
+|      1      |63.105387926101685|      128     |     27.44 |
+|      2      |63.105387926101685|      1       |     79.06  |
+|      2      |63.105387926101685|      8       |     30.05 |
+|      2      |63.105387926101685|      16      |     27.1  |
+|      2      |63.105387926101685|      64     |     27.44 |
+|      2      |63.105387926101685|      128     |     27.44 |
+|      4      |63.105387926101685|      1       |     79.06  |
+|      4      |63.105387926101685|      8       |     30.05 |
+|      4      |63.105387926101685|      16      |     27.1  |
+|      4      |63.105387926101685|      64     |     27.44 |
+|      4      |63.105387926101685|      128     |     27.44 |
+|      8      |63.105387926101685|      1       |     79.06  |
+|      8      |63.105387926101685|      8       |     30.05 |
+|      8      |63.105387926101685|      16      |     27.1  |
+|      8      |63.105387926101685|      64     |     27.44 |
+|      8      |63.105387926101685|      128     |     27.44 |
+|      16      |63.105387926101685|      1       |     79.06  |
+|      16      |63.105387926101685|      8       |     30.05 |
+|      16      |63.105387926101685|      16      |     27.1  |
+|      16      |63.105387926101685|      64     |     27.44 |
+|      16      |63.105387926101685|      128     |     27.44 | -->
+
 
 ## EfficientNet B4 benchmark:
 - Number of examples = 512
