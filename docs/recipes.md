@@ -24,6 +24,7 @@ We provide pre-built images for various Deep Learning models. Each recipe is a d
 ./fastDeploy.py --run RECIPE_NAME
 ```
 
+- Source code for all the recipes is [here](https://github.com/notAI-tech/fastDeploy/tree/master/recipes).
 
 # Text Detection in images
 
