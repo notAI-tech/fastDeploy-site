@@ -56,6 +56,20 @@ docker push dockerhub_username/repo_name:craft_text_detection
 --extra_config '{"VARIABLE_1": "VALUE"}'
 ```
 
+- List of default arguments and their values.
+
+|NAME                 | Default value| Description|
+|:-------------------:|:------------:|:----------:|
+|ONLY_ASYNC           | False        | if anything but empty, `/sync` will be disabled.|
+|TIMEOUT              | 120          | `/sync` request timeout|
+|WORKERS              | auto-calculated| Number of gunircorn workers. Suggested to leave it on auto.|
+|CACHE                | 0.05 * free memory |memory cache limit|
+|MAX_RAM_FILE_SIZE    |2 (MB)        |limit the file size that can be stored in CACHE |
+|BATCH_SIZE           | auto-calculated| Maximum Batch size used for predictions |
+|MAX_PER_CLIENT_BATCH | 0 (No limit)        | Maximum number of examples allowed in client batch. 0 for No limit|
+|MAX_WAIT             | 0.2          | loop will wait for time_per_example * MAX_WAIT is batch_size is less than BATCH_SIZE |
+
+
 - **verbose**: Prints corresponding docker commands.
 
 ```bash
