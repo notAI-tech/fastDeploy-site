@@ -136,3 +136,8 @@ if __name__ == '__main__:
 |kaldi_vosk-en_us-small      |English speech recogniton           |[VOSK-api](https://github.com/alphacep/vosk-api/blob/master/doc/models.md)|MAX_WAV_LEN (default: 0 for no limit)|FILE|
 |kaldi_vosk-en_us-aspire      |English speech recogniton           |[VOSK-api](https://github.com/alphacep/vosk-api/blob/master/doc/models.md)|MAX_WAV_LEN (default: 0 for no limit)|FILE|
 
+# Audio Classification
+
+|Name                         |Description                             |Based On|extra_config| Input Type|
+|:---------------------------:|:--------------------------------------:|:------:|:----------:|:---------:|
+|audio_classification_yamnet  |predicts 521 audio event classes        |[YAMNet](https://github.com/tensorflow/models/tree/master/research/audioset/yamnet)|N/A|FILE|
