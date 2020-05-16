@@ -74,85 +74,55 @@ if __name__ == '__main__:
 **Going through a relevant recipe's code might be helpful in understanding how `predictor.py` should be written.**
 
 
-## CRAFT Text Detection:
-
-```bash
-./fastDeploy.py --run craft_text_detection
-```
-
-**Arxiv**: [https://arxiv.org/abs/1904.01941](https://arxiv.org/abs/1904.01941)
-
-**Based on**: [keras-ocr](https://github.com/faustomorales/keras-ocr/), [CRAFT-pytorch](https://github.com/clovaai/CRAFT-pytorch)
-
-**View Code**: [On Github](https://github.com/notAI-tech/fastDeploy/tree/master/recipes/craft_text_detection)
-
-CRAFT recipe uses the FILE format.
 
 
 
-## DeepSegment_en/fr/it:
+# Text Detection in images
+|Name                         |Description                             |Based On|extra_config| Input Type|
+|:---------------------------:|:--------------------------------------:|:------:|:----------:|:---------:|
+|craft_text_detection |Multi-lingual Text Detection in images |[keras-ocr](https://github.com/faustomorales/keras-ocr/), [CRAFT-pytorch](https://github.com/clovaai/CRAFT-pytorch)|N/A|FILE|
 
-```bash
-# English
-./fastDeploy.py --run deepsegment_en
+# Image Classification
+|Name                         |Description                             |Based On|extra_config| Input Type|
+|:---------------------------:|:--------------------------------------:|:------:|:----------:|:---------:|
+|efficientnet_b0 |Imagenet Image classification |[EfficientNet](https://github.com/qubvel/efficientnet)|N/A|FILE|
+|efficientnet_b2 |Imagenet Image classification |[EfficientNet](https://github.com/qubvel/efficientnet)|N/A|FILE|
+|efficientnet_b4 |Imagenet Image classification |[EfficientNet](https://github.com/qubvel/efficientnet)|N/A|FILE|
+|efficientnet_b7 |Imagenet Image classification |[EfficientNet](https://github.com/qubvel/efficientnet)|N/A|FILE|
 
-# French
-./fastDeploy.py --run deepsegment_fr
-
-# Italian
-./fastDeploy.py --run deepsegment_it
-```
-
-**Arxiv**: N/A
-
-**Based on**: [DeepSegment](https://github.com/bedapudi6788/deepsegment)
-
-**View Code**: [On Github](https://github.com/notAI-tech/fastDeploy/tree/master/recipes/deepsegment)
-
-DeepSegment recipe(s) uses the JSON format.
+|nudeclassifier |Sexual image classification |[NudeNet](https://github.com/bedapudi6788/NudeNet)|N/A|FILE|
 
 
-## HuggingFace Transformer_summarization/ner/sentiment
+# Sentence Splitting
+|Name                         |Description                             |Based On|extra_config| Input Type|
+|:---------------------------:|:--------------------------------------:|:------:|:----------:|:---------:|
+|deepsegment_en |Split English text into sentences |[DeepSegment](https://github.com/bedapudi6788/deepsegment)|N/A|JSON|
+|deepsegment_fr |Split French text into sentences  |[DeepSegment](https://github.com/bedapudi6788/deepsegment)|N/A|JSON|
+|deepsegment_it |Split Italian text into sentences |[DeepSegment](https://github.com/bedapudi6788/deepsegment)|N/A|JSON|
 
-```bash
 # Summarization
-./fastDeploy.py --run transformer_summarization
+|Name                         |Description                             |Based On|extra_config| Input Type|
+|:---------------------------:|:--------------------------------------:|:------:|:----------:|:---------:|
+|transformer_summarization  |English text summarization           |[Transformers](https://github.com/huggingface/transformers)|extra_config|JSON|
 
 # Named Entity Recognition
-./fastDeploy.py --run transformer_ner
+|Name                         |Description                             |Based On|extra_config| Input Type|
+|:---------------------------:|:--------------------------------------:|:------:|:----------:|:---------:|
+|transformer_ner            |English Named Entity Recognition     |[Transformers](https://github.com/huggingface/transformers)|extra_config|JSON|
 
 # Sentiment Analysis
-./fastDeploy.py --run transformer_sentiment
-```
+|Name                         |Description                             |Based On|extra_config| Input Type|
+|:---------------------------:|:--------------------------------------:|:------:|:----------:|:---------:|
+|transformer_sentiment      |English Sentiment Analysis           |[Transformers](https://github.com/huggingface/transformers)|extra_config|JSON|
 
-**Arxiv**: N/A
+# Translation
+|Name                         |Description                             |Based On|extra_config| Input Type|
+|:---------------------------:|:--------------------------------------:|:------:|:----------:|:---------:|
+|transformer_translation_en_to_fr  |English to French translation           |[Transformers](https://github.com/huggingface/transformers)|extra_config|JSON|
 
-**Based on**: [Transformers](https://github.com/huggingface/transformers)
+# Speech Recognition
+|Name                         |Description                             |Based On|extra_config| Input Type|
+|:---------------------------:|:--------------------------------------:|:------:|:----------:|:---------:|
+|kaldi_vosk-en_us-small      |English speech recogniton           |[VOSK-api](https://github.com/alphacep/vosk-api/blob/master/doc/models.md)|extra_config|FILE|
+|kaldi_vosk-en_us-aspire      |English speech recogniton           |[VOSK-api](https://github.com/alphacep/vosk-api/blob/master/doc/models.md)|extra_config|FILE|
 
-**View Code**: [On Github](https://github.com/notAI-tech/fastDeploy/tree/master/recipes/huggingface_transformers)
-
-Transformer recipe(s) uses the JSON format.
-
-
-## NudeClassifier
-```bash
-./fastDeploy.py --run nudeclassifier
-```
-
-**Arxiv**: N/A
-
-**Based on**: [NudeNet](https://github.com/bedapudi6788/NudeNet)
-
-**View Code**: [On Github](https://github.com/notAI-tech/fastDeploy/tree/master/recipes/nudeclassifier)
-
-## YamNet Audio Classification
-
-```bash
-./fastDeploy.py --run audioclassifier_yamnet
-```
-
-**Arxiv**: N/A
-
-**Based on**: [yamnet](https://github.com/tensorflow/models/tree/master/research/audioset/yamnet)
-
-**View Code**: [On Github](https://github.com/notAI-tech/fastDeploy/tree/master/recipes/audio_classification_yamnet)
